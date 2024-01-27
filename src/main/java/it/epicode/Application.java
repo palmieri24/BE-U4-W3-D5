@@ -160,7 +160,7 @@ public class Application {
                                         System.out.println("Inserisci un cognome utente: ");
                                         String lastName = input.nextLine();
                                         System.out.println("Inserisci data di nascita: ");
-                                        LocalDate dateOfBirth = LocalDate.now();
+                                        LocalDate dateOfBirth = input.nextLine();
                                         User user= new User(name, lastName, dateOfBirth);
                                         userDAO.save(user);
                                     } catch (Exception e) {
@@ -198,7 +198,7 @@ public class Application {
                                     long isbn = Integer.parseInt(input.nextLine());
                                     Catalog elementUtente = catalogDAO.getByISBN(isbn);
                                     System.out.println("Inserisci data inizio prestito : ");
-                                    LocalDate startLoan = LocalDate.now();
+                                    LocalDate startLoan = input.nextLine();
                                     Loan loan = new Loan();
                                     loanDAO.save(loan);
                                 } catch (Exception e) {
