@@ -11,6 +11,7 @@ public class UserDAO {
         this.entityManager = entityManager;
     }
 
+    //Salva Utente
     public void save(User user){
         EntityTransaction transaction = entityManager.getTransaction();
 
@@ -21,10 +22,12 @@ public class UserDAO {
         System.out.println("User " + user.getName() + " correctly added!");
     }
 
+    //Ricerca utente per Numero Tessera(ID)
     public User getById(long id){
         return entityManager.find(User.class, id);
     }
 
+    //Rimozione per Numero Tessera(ID)
     public void deleteById(long id){
         User userFound = this.getById(id);
 
