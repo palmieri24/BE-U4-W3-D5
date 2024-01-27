@@ -1,19 +1,22 @@
 package it.epicode.Entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Random;
 
 @Entity
 @Table(name = "catalog")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Catalog {
     @Id
+    @GeneratedValue
     private long ISBN;
     private String title;
     private int yearOfPublication;
     private int numberOfPage;
+    @OneToMany(mappedBy = "element")
+    private List<Loan> loanList;
 
 public Catalog(String title, int yearOfPublication, int numberOfPage){
     Random random = new Random();

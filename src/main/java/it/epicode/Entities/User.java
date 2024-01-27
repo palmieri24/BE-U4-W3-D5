@@ -1,20 +1,22 @@
 package it.epicode.Entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 @Entity
 @Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue
     long cardNumber;
     private String name;
     private String lastName;
     private Date dateOfBirth;
+    @OneToMany(mappedBy = "user")
+    private List<Loan> loans;
 
 
     public User(String name, String lastName, Date dateOfBirth){

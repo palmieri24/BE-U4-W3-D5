@@ -19,7 +19,15 @@ public class Magazine extends Catalog{
         this.periodicity = periodicity;
     }
 
-   @Override
+    public Periodicity getPeriodicity() {
+        return periodicity;
+    }
+
+    public void setPeriodicity(Periodicity periodicity) {
+        this.periodicity = periodicity;
+    }
+
+    @Override
     public String toString() {
        return "Magazine{" +
                "ISBN=" + getISBN() +

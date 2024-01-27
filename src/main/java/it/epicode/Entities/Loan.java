@@ -1,23 +1,28 @@
 package it.epicode.Entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "loan")
 public class Loan {
     @Id
+    @GeneratedValue
     private long id;
+    @ManyToOne
+    @JoinColumn(name = "element_id")
     private Catalog element;
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
     private Date startLoan;
     private Date agreedDateOfReturn;
     private Date effectiveDateOfReturn;
 
+    public Loan(){
+
+    }
 
 public Loan(Catalog element, User user, Date startLoan, Date agreedDateOfReturn, Date effectiveDateOfReturn){
     this.element = element;
