@@ -2,7 +2,7 @@ package it.epicode.Entities;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "loan")
@@ -16,15 +16,15 @@ public class Loan {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    private Date startLoan;
-    private Date agreedDateOfReturn;
-    private Date effectiveDateOfReturn;
+    private LocalDate startLoan;
+    private LocalDate agreedDateOfReturn;
+    private LocalDate effectiveDateOfReturn;
 
     public Loan(){
 
     }
 
-public Loan(Catalog element, User user, Date startLoan, Date agreedDateOfReturn, Date effectiveDateOfReturn){
+public Loan(Catalog element, User user, LocalDate startLoan, LocalDate agreedDateOfReturn, LocalDate effectiveDateOfReturn){
     this.element = element;
     this.user = user;
     this.startLoan = startLoan;
@@ -57,27 +57,27 @@ public Loan(Catalog element, User user, Date startLoan, Date agreedDateOfReturn,
         this.user = user;
     }
 
-    public Date getStartLoan() {
+    public LocalDate getStartLoan() {
         return startLoan;
     }
 
-    public void setStartLoan(Date startLoan) {
+    public void setStartLoan(LocalDate startLoan) {
         this.startLoan = startLoan;
     }
 
-    public Date getAgreedDateOfReturn() {
+    public LocalDate getAgreedDateOfReturn() {
         return agreedDateOfReturn;
     }
 
-    public void setAgreedDateOfReturn(Date agreedDateOfReturn) {
+    public void setAgreedDateOfReturn(LocalDate agreedDateOfReturn) {
         this.agreedDateOfReturn = agreedDateOfReturn;
     }
 
-    public Date getEffectiveDateOfReturn() {
+    public LocalDate getEffectiveDateOfReturn() {
         return effectiveDateOfReturn;
     }
 
-    public void setEffectiveDateOfReturn(Date effectiveDateOfReturn) {
+    public void setEffectiveDateOfReturn(LocalDate effectiveDateOfReturn) {
         this.effectiveDateOfReturn = effectiveDateOfReturn;
     }
 

@@ -4,6 +4,8 @@ import it.epicode.Entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class UserDAO {
     private final EntityManager entityManager;
@@ -42,6 +44,13 @@ public class UserDAO {
         } else {
             System.out.println("User with id " + id + " not found!");
         }
+    }
+
+    //Ricerca per nome
+    public List<User> getByName(String name) {
+        TypedQuery<User> getByName = entityManager.createQuery("SELECT user FROM User user WHERE user.name LIKE :name", User.class);
+        getByName.setParameter("name", "%" + name + "%");
+        return getByName.getResultList();
     }
 
 }

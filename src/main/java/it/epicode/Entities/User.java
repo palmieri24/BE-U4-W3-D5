@@ -2,7 +2,7 @@ package it.epicode.Entities;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
@@ -14,12 +14,12 @@ public class User {
     long cardNumber;
     private String name;
     private String lastName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     @OneToMany(mappedBy = "user")
     private List<Loan> loans;
 
 
-    public User(String name, String lastName, Date dateOfBirth){
+    public User(String name, String lastName, LocalDate dateOfBirth){
         Random random = new Random();
         this.cardNumber = random.nextInt(0,999999);
         this.name = name;
@@ -52,11 +52,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
