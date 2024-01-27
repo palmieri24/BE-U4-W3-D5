@@ -46,11 +46,4 @@ public class UserDAO {
         }
     }
 
-    //Ricerca per nome
-    public List<User> getByName(String name) {
-        TypedQuery<User> getByName = entityManager.createQuery("SELECT user FROM User user WHERE user.name LIKE :name", User.class);
-        getByName.setParameter("name", "%" + name + "%");
-        return getByName.getResultList();
-    }
-
 }
